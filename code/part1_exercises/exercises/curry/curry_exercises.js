@@ -6,8 +6,8 @@ var _ = require('ramda');
 //==============
 // Refactor to remove all arguments by partially applying the function
 
-var words = function(str) {
-  return split(' ', str);
+var words = function (str) {
+    return split(' ', str);
 };
 
 // Exercise 1a
@@ -21,8 +21,10 @@ var sentences = undefined;
 //==============
 // Refactor to remove all arguments by partially applying the functions
 
-var filterQs = function(xs) {
-  return filter(function(x){ return match(/q/i, x);  }, xs);
+var filterQs = function (xs) {
+    return filter(function (x) {
+        return match(/q/i, x);
+    }, xs);
 };
 
 
@@ -31,16 +33,18 @@ var filterQs = function(xs) {
 // Use the helper function _keepHighest to refactor max to not reference any arguments
 
 // LEAVE BE:
-var _keepHighest = function(x,y){ return x >= y ? x : y; };
-
-// REFACTOR THIS ONE:
-var max = function(xs) {
-  return reduce(function(acc, x){
-    return _keepHighest(acc, x);
-  }, -Infinity, xs);
+var _keepHighest = function (x, y) {
+    return x >= y ? x : y;
 };
 
-  
+// REFACTOR THIS ONE:
+var max = function (xs) {
+    return reduce(function (acc, x) {
+        return _keepHighest(acc, x);
+    }, -Infinity, xs);
+};
+
+
 // Bonus 1:
 // ============
 // wrap array's slice to be functional and curried.
@@ -54,10 +58,11 @@ var slice = undefined;
 var take = undefined;
 
 
-module.exports = { words: words,
-                   sentences: sentences,
-                   filterQs: filterQs,
-                   max: max,
-                   slice: slice,
-                   take: take
-                 };
+module.exports = {
+    words: words,
+    sentences: sentences,
+    filterQs: filterQs,
+    max: max,
+    slice: slice,
+    take: take
+};
