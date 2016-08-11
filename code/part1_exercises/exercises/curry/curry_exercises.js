@@ -19,12 +19,9 @@ var sentences = map(words);
 //==============
 // Refactor to remove all arguments by partially applying the functions
 
-var filterQs = function (xs) {
-    return filter(function (x) {
-        return match(/q/i, x);
-    }, xs);
-};
-
+var filterQs = filter(function (x) {
+    return match(/q/i, x);
+});
 
 // Exercise 3
 //==============
