@@ -40,7 +40,9 @@ var max = reduce(_keepHighest, Number.MIN_VALUE);
 // ============
 // wrap array's slice to be functional and curried.
 // //[1,2,3].slice(0, 2)
-var slice = undefined;
+var slice = _.curry(function (start, end, ary) {
+    return [].slice.call(ary, start, end);
+});
 
 
 // Bonus 2:
