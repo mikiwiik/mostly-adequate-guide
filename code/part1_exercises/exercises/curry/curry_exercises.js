@@ -48,7 +48,9 @@ var slice = _.curry(function (start, end, ary) {
 // Bonus 2:
 // ============
 // use slice to define a function "take" that takes n elements. Make it curried
-var take = undefined;
+var take = _.curry(function (n, ary) {
+    return [].slice.call(ary, 0, n);
+});
 
 
 module.exports = {
