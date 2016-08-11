@@ -33,11 +33,7 @@ var _keepHighest = function (x, y) {
 };
 
 // REFACTOR THIS ONE:
-var max = function (xs) {
-    return reduce(function (acc, x) {
-        return _keepHighest(acc, x);
-    }, -Infinity, xs);
-};
+var max = reduce(_keepHighest, Number.MIN_VALUE);
 
 
 // Bonus 1:
