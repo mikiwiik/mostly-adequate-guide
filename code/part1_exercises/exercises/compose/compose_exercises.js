@@ -36,13 +36,10 @@ var _average = function (xs) {
     return reduce(add, 0, xs) / xs.length;
 }; // <- leave be
 
-var averageDollarValue = function (cars) {
-    var dollar_values = map(function (c) {
-        return c.dollar_value;
-    }, cars);
-    return _average(dollar_values);
-};
-
+var averageDollarValue = _.compose(
+    _average, /*Not sure why _average() fails*/
+    map(_.prop('dollar_value'))
+);
 
 // Exercise 4:
 // ============
