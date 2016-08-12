@@ -62,12 +62,16 @@ var sanitizeNames = map( // Process an array
 // ============
 // Refactor availablePrices with compose.
 
-var availablePrices = function (cars) {
-    var available_cars = _.filter(_.prop('in_stock'), cars);
-    return available_cars.map(function (x) {
-        return accounting.formatMoney(x.dollar_value)
-    }).join(', ');
-};
+var availablePrices = _.compose(
+    join(', '), // Concatenate to single string
+    map( // Get correctly formatted prize
+        _.compose(
+            accounting.formatMoney,
+            _.prop('dollar_value')
+        )
+    ),
+    _.filter(_.prop('in_stock')) // Onyl those in stock
+);
 
 
 // Bonus 2:
