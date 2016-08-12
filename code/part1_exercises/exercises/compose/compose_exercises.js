@@ -43,11 +43,19 @@ var averageDollarValue = _.compose(
 
 // Exercise 4:
 // ============
-// Write a function: sanitizeNames() using compose that takes an array of cars and returns a list of lowercase and underscored names: e.g: sanitizeNames([{name: "Ferrari FF"}]) //=> ["ferrari_ff"].
+// Write a function: sanitizeNames() using compose that takes an array of cars and 
+// returns a list of lowercase and underscored names: 
+// e.g: sanitizeNames([{name: "Ferrari FF"}]) //=> ["ferrari_ff"].
 
 var _underscore = replace(/\W+/g, '_'); //<-- leave this alone and use to sanitize
 
-var sanitizeNames = undefined;
+var sanitizeNames = map( // Process an array
+    _.compose( // Process single entry
+        toLowerCase,
+        _underscore,
+        _.prop('name')
+    )
+);
 
 
 // Bonus 1:
