@@ -78,13 +78,14 @@ var availablePrices = _.compose(
 // ============
 // Refactor to pointfree. Hint: you can use _.flip()
 
-var fastestCar = function (cars) {
-    var sorted = _.sortBy(function (car) {
-        return car.horsepower
-    }, cars);
-    var fastest = _.last(sorted);
-    return fastest.name + ' is the fastest';
-};
+fastestCar = _.compose(
+    _.flip(_.concat)(' is the fastest'), // Flipping the params to concat => Append the given string
+    _.prop('name'),
+    _.last,
+    _.sortBy(
+        _.prop('horsepower')
+    )
+);
 
 
 module.exports = {
