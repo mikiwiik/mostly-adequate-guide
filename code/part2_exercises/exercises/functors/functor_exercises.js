@@ -28,9 +28,11 @@ var safeProp = _.curry(function (x, o) {
     return Maybe.of(o[x]);
 });
 
-var user = {id: 2, name: "Albert"};
-
-var ex3 = undefined;
+// var user = {id: 2, name: "Albert"};
+var ex3 = _.compose(
+    map(_.head),
+    safeProp('name') // Returns a functor Maybe
+);
 
 
 // Exercise 4
