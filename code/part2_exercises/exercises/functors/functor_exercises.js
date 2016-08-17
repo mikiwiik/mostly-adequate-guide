@@ -14,9 +14,11 @@ var ex1 = function (functor) {
 // Exercise 2
 // ==========
 // Use _.head to get the first element of the list
-var xs = Identity.of(['do', 'ray', 'me', 'fa', 'so', 'la', 'ti', 'do']);
+// var xs = Identity.of(['do', 'ray', 'me', 'fa', 'so', 'la', 'ti', 'do']);
 
-var ex2 = undefined;
+var ex2 = function (xs) {
+    return xs.map(_.head);
+};
 
 
 // Exercise 3
