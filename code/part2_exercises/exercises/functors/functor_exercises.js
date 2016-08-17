@@ -39,13 +39,10 @@ var ex3 = _.compose(
 // ==========
 // Use Maybe to rewrite ex4 without an if statement
 
-var ex4 = function (n) {
-    if (n) {
-        return parseInt(n);
-    }
-};
-
-var ex4 = undefined;
+var ex4 = _.compose(
+    map(parseInt),
+    Maybe.of
+);
 
 
 // Exercise 5
