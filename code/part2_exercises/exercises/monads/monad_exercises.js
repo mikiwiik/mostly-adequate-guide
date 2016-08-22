@@ -21,10 +21,8 @@ var user = {
 };
 
 var ex1 = _.compose(
-    join,
-    map(safeProp('name')),
-    join,
-    map(safeProp('street')),
+    chain(safeProp('name')),
+    chain(safeProp('street')),
     safeProp('address')
 );
 
