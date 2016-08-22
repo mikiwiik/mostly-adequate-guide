@@ -20,7 +20,13 @@ var user = {
     }
 };
 
-var ex1 = undefined;
+var ex1 = _.compose(
+    join,
+    map(safeProp('name')),
+    join,
+    map(safeProp('street')),
+    safeProp('address')
+);
 
 
 // Exercise 2
