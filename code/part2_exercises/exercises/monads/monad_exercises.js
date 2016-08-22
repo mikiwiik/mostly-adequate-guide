@@ -44,7 +44,18 @@ var pureLog = function (x) {
     });
 }
 
-var ex2 = undefined;
+const path = require('path');
+var doIt = function (x) {
+    return new IO(function () {
+        return path.basename(x);
+    });
+}
+
+var ex2 = _.compose(
+    chain(pureLog),
+    chain(doIt),
+    getFile
+);
 
 
 // Exercise 3
