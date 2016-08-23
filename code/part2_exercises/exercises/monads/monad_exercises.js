@@ -45,7 +45,7 @@ var pureLog = function (x) {
 }
 
 const path = require('path');
-var doIt = function (x) {
+var getBasename = function (x) {
     return new IO(function () {
         return path.basename(x);
     });
@@ -53,7 +53,7 @@ var doIt = function (x) {
 
 var ex2 = _.compose(
     chain(pureLog),
-    chain(doIt),
+    chain(getBasename),
     getFile
 );
 
