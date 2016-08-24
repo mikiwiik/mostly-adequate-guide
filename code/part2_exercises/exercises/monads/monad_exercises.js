@@ -68,7 +68,7 @@ var getPost = function (i) {
             res({id: i, title: 'Love them tasks'}); // THE POST
         }, 300);
     });
-}
+};
 
 var getComments = function (i) {
     return new Task(function (rej, res) {
@@ -79,9 +79,19 @@ var getComments = function (i) {
             }]);
         }, 300);
     });
-}
+};
 
-var ex3 = undefined;
+var getId = function (task) {
+    return new Task(function (rej, res) {
+        res(task.id)
+    });
+};
+
+var ex3 = _.compose(
+    chain(getComments),
+    chain(getId),
+    getPost
+);
 
 
 // Exercise 4
