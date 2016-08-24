@@ -116,13 +116,21 @@ function emailBlast(list) {
     });
 }
 
+var addToListAndNotify = _.compose(
+    emailBlast,
+    addToMailingList
+);
+
 //  validateEmail :: Email -> Either String Email
 var validateEmail = function (x) {
     return x.match(/\S+@\S+\.\S+/) ? (new Right(x)) : (new Left('invalid email'));
 }
 
 //  ex4 :: Email -> Either String (IO String)
-var ex4 = undefined;
+var ex4 = _.compose(
+    map(addToListAndNotify),
+    validateEmail
+);
 
 
 module.exports = {ex1: ex1, ex2: ex2, ex3: ex3, ex4: ex4, user: user}
