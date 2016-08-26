@@ -36,7 +36,7 @@ var render = _.curry(function (p, cs) {
 });
 
 //  ex3 :: Task Error HTML
-var ex3 = undefined;
+var ex3 = Task.of(render).ap(getPost("spam")).ap(getComments("eggs"));
 
 
 // Exercise 4
