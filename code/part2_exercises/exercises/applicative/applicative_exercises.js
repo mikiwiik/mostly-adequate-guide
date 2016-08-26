@@ -49,13 +49,14 @@ var getCache = function (x) {
     return new IO(function () {
         return localStorage[x];
     });
-}
+};
+
 var game = _.curry(function (p1, p2) {
     return p1 + ' vs ' + p2;
 });
 
 //  ex4 :: IO String
-var ex4 = undefined;
+var ex4 = IO.of(game).ap(getCache('player1')).ap(getCache('player2'));
 
 
 // TEST HELPERS
